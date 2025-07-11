@@ -70,37 +70,6 @@ export default function HomePage() {
     }
   };
 
-  const formatAnalysis = (text: string) => {
-    return text.split("\n").map((line, index) => {
-      if (line.startsWith("##")) {
-        return (
-          <h3 key={index} className="text-lg font-semibold mt-4 mb-2">
-            {line.replace("##", "").trim()}
-          </h3>
-        );
-      } else if (line.startsWith("**") && line.endsWith("**")) {
-        return (
-          <p key={index} className="font-medium mt-2">
-            {line.replace(/\*\*/g, "")}
-          </p>
-        );
-      } else if (line.trim().startsWith("-")) {
-        return (
-          <li key={index} className="ml-4">
-            {line.replace("-", "").trim()}
-          </li>
-        );
-      } else if (line.trim()) {
-        return (
-          <p key={index} className="mt-2">
-            {line}
-          </p>
-        );
-      }
-      return <br key={index} />;
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="max-w-4xl mx-auto">
