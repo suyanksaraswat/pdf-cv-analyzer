@@ -17,6 +17,7 @@ import { Loader2, Upload, FileText, CheckCircle, XCircle } from "lucide-react";
 import { TRPCTest } from "@/components/trpc-test";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Analysis from "./_components/analysis";
 
 export default function HomePage() {
   const [jobDescriptionFile, setJobDescriptionFile] = useState<File | null>(
@@ -177,23 +178,7 @@ export default function HomePage() {
           </Alert>
         )}
 
-        {analysis && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Analysis Results</CardTitle>
-              <CardDescription>
-                AI-powered insights on candidate-job alignment
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="prose max-w-none space-y-4">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {analysis}
-                </ReactMarkdown>
-              </div>
-            </CardContent>
-          </Card>
-        )}
+        {analysis && <Analysis analysis={analysis} />}
       </div>
     </div>
   );
